@@ -1,0 +1,182 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "512872999da5dbfe779bfbac53a51db4",
+    "packages": [
+        {
+            "name": "compwright/codeigniter-installers",
+            "version": "1.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/compwright/codeigniter-installers.git",
+                "reference": "adbbd5ae2cbf5a24a39931235b1ac7dab56abb4f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/compwright/codeigniter-installers/zipball/adbbd5ae2cbf5a24a39931235b1ac7dab56abb4f",
+                "reference": "adbbd5ae2cbf5a24a39931235b1ac7dab56abb4f",
+                "shasum": ""
+            },
+            "require-dev": {
+                "composer/composer": "1.0.*@dev"
+            },
+            "type": "composer-installer",
+            "extra": {
+                "class": "Composer\\Installer\\CodeigniterInstaller"
+            },
+            "autoload": {
+                "psr-0": {
+                    "Composer\\Installer": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathon Hill",
+                    "email": "jhill9693@gmail.com",
+                    "homepage": "http://jonathonhill.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Composer installers for CodeIgniter",
+            "homepage": "https://github.com/compwright/codeigniter-installers",
+            "keywords": [
+                "MX",
+                "codeigniter",
+                "composer",
+                "core",
+                "hmvc",
+                "installer",
+                "library",
+                "module",
+                "spark",
+                "sparks"
+            ],
+            "time": "2012-11-12 16:11:38"
+        },
+        {
+            "name": "lonnieezell/codeigniter-forensics",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lonnieezell/codeigniter-forensics.git",
+                "reference": "21b17ffa79f4d205fc266e114ac24bdc162a3661"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lonnieezell/codeigniter-forensics/zipball/21b17ffa79f4d205fc266e114ac24bdc162a3661",
+                "reference": "21b17ffa79f4d205fc266e114ac24bdc162a3661",
+                "shasum": ""
+            },
+            "require": {
+                "compwright/codeigniter-installers": "*"
+            },
+            "type": "codeigniter-third-party",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lonnie Ezell",
+                    "email": "lonnieezell@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A high-powered, customizable Profiler replacement for CodeIgniter.",
+            "homepage": "http://lonnieezell.github.io/codeigniter-forensics/",
+            "keywords": [
+                "codeigniter",
+                "debug",
+                "profiler",
+                "spark"
+            ],
+            "time": "2014-12-19 04:04:12"
+        },
+        {
+            "name": "ospinto/dbug",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ospinto/dbug.git",
+                "reference": "4a1bb162c021c2cb0103075e25a94926fc0e0eda"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ospinto/dbug/zipball/4a1bb162c021c2cb0103075e25a94926fc0e0eda",
+                "reference": "4a1bb162c021c2cb0103075e25a94926fc0e0eda",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "dBug.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Kwaku Otchere",
+                    "email": "ospinto@hotmail.com",
+                    "homepage": "http://dbug.ospinto.com/",
+                    "role": "Former author"
+                }
+            ],
+            "description": "PHP version of ColdFusion's cfdump. Outputs colored and structured tabular variable information.",
+            "time": "2014-01-20 19:21:40"
+        }
+    ],
+    "packages-dev": [
+        {
+            "name": "mikey179/vfsStream",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mikey179/vfsStream.git",
+                "reference": "fc0fe8f4d0b527254a2dc45f0c265567c881d07e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mikey179/vfsStream/zipball/fc0fe8f4d0b527254a2dc45f0c265567c881d07e",
+                "reference": "fc0fe8f4d0b527254a2dc45f0c265567c881d07e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "org\\bovigo\\vfs": "src/main/php"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD"
+            ],
+            "homepage": "http://vfs.bovigo.org/",
+            "time": "2012-08-25 12:49:29"
+        }
+    ],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "ospinto/dbug": 20,
+        "lonnieezell/codeigniter-forensics": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=5.2.4"
+    },
+    "platform-dev": []
+}
