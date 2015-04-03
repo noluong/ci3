@@ -8,7 +8,7 @@
                 <br><br>eget tellus luctus fermentum.</p>
                 <a href="single-post.html">Shop Now</a>
             </div>
-          <img src="images/slide1.jpg" alt="" />
+          <img src="/public/images/slide1.jpg" alt="" />
         </li>
         <li>
             <div class="slider-caption">
@@ -17,7 +17,7 @@
                 <br><br>consectetur tempor neque vitae iaculis. Aliquam erat volutpat.</p>
                 <a href="single-post.html">More Details</a>
             </div>
-          <img src="images/slide2.jpg" alt="" />
+          <img src="/public/images/slide2.jpg" alt="" />
         </li>
         <li>
             <div class="slider-caption">
@@ -26,7 +26,7 @@
                 <br><br>ornare massa, quis dapibus quam condimentum id.</p>
                 <a href="single-post.html">Get Ready</a>
             </div>
-          <img src="images/slide3.jpg" alt="" />
+          <img src="/public/images/slide3.jpg" alt="" />
         </li>
       </ul>
     </div>

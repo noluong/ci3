@@ -20,23 +20,23 @@ http://www.templatemo.com/preview/templatemo_417_grill
     
     <link rel="index contents" href="/" title="">
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/font-awesome.css">
-    <link rel="stylesheet" href="/css/templatemo_style.css">
-    <link rel="stylesheet" href="/css/templatemo_misc.css">
-    <link rel="stylesheet" href="/css/flexslider.css">
-    <link rel="stylesheet" href="/css/testimonails-slider.css">
+    <link rel="stylesheet" href="/public/css/bootstrap.css">
+    <link rel="stylesheet" href="/public/css/font-awesome.css">
+    <link rel="stylesheet" href="/public/css/templatemo_style.css">
+    <link rel="stylesheet" href="/public/css/templatemo_misc.css">
+    <link rel="stylesheet" href="/public/css/flexslider.css">
+    <link rel="stylesheet" href="/public/css/testimonails-slider.css">
     <?php if(isset($css) && is_array($css)): foreach ($css as $val): ?>
-    <link rel="stylesheet" type="text/css" href="/css/<?php echo $val; ?>.css" />
+    <link rel="stylesheet" type="text/css" href="/public/css/<?php echo $val; ?>.css" />
     <?php endforeach; endif; ?>
 
-    <script src="/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
-    <script src="/js/vendor/jquery-1.11.0.min.js"></script>
-    <script src="/js/vendor/jquery.gmap3.min.js"></script>
-    <script src="/js/plugins.js"></script>
-    <script src="/js/main.js"></script>
+    <script src="/public/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+    <script src="/public/js/vendor/jquery-1.11.0.min.js"></script>
+    <script src="/public/js/vendor/jquery.gmap3.min.js"></script>
+    <script src="/public/js/plugins.js"></script>
+    <script src="/public/js/main.js"></script>
     <?php if(isset($js) && is_array($js)): foreach ($js as $val): ?>
-    <script type="text/javascript" src="/js/<?php echo $val; ?>.js"></script>
+    <script type="text/javascript" src="/public/js/<?php echo $val; ?>.js"></script>
     <?php endforeach; endif; ?>
 </head>
 <body id="<?php echo $pageID?>">

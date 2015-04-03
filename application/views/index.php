@@ -14,7 +14,7 @@ $this->load->view('includes/slider');?>
             <div class="col-md-12">
                 <div class="heading-section">
                     <h2>Free Website Templates</h2>
-                    <img src="images/under-heading.png" alt="" >
+                    <img src="/public/images/under-heading.png" alt="" >
                 </div>
             </div>
         </div>
@@ -69,7 +69,7 @@ $this->load->view('includes/slider');?>
             <div class="col-md-12">
                 <div class="heading-section">
                     <h2>Latest blog posts</h2>
-                    <img src="images/under-heading.png" alt="" >
+                    <img src="/public/images/under-heading.png" alt="" >
                 </div>
             </div>
         </div>
@@ -77,7 +77,7 @@ $this->load->view('includes/slider');?>
             <div class="col-md-4 col-sm-6">
                 <div class="blog-post">
                     <div class="blog-thumb">
-                        <img src="images/blogpost1.jpg" alt="" />
+                        <img src="/public/images/blogpost1.jpg" alt="" />
                     </div>
                     <div class="blog-content">
                         <div class="content-show">
@@ -93,7 +93,7 @@ $this->load->view('includes/slider');?>
             <div class="col-md-4 col-sm-6">
                 <div class="blog-post">
                     <div class="blog-thumb">
-                        <img src="images/blogpost2.jpg" alt="" />
+                        <img src="/public/images/blogpost2.jpg" alt="" />
                     </div>
                     <div class="blog-content">
                         <div class="content-show">
@@ -109,7 +109,7 @@ $this->load->view('includes/slider');?>
             <div class="col-md-4 col-sm-6">
                 <div class="blog-post">
                     <div class="blog-thumb">
-                        <img src="images/blogpost3.jpg" alt="" />
+                        <img src="/public/images/blogpost3.jpg" alt="" />
                     </div>
                     <div class="blog-content">
                         <div class="content-show">
@@ -125,7 +125,7 @@ $this->load->view('includes/slider');?>
             <div class="col-md-4 col-sm-6">
                 <div class="blog-post">
                     <div class="blog-thumb">
-                        <img src="images/blogpost4.jpg" alt="" />
+                        <img src="/public/images/blogpost4.jpg" alt="" />
                     </div>
                     <div class="blog-content">
                         <div class="content-show">
@@ -141,7 +141,7 @@ $this->load->view('includes/slider');?>
             <div class="col-md-4 col-sm-6">
                 <div class="blog-post">
                     <div class="blog-thumb">
-                        <img src="images/blogpost5.jpg" alt="" />
+                        <img src="/public/images/blogpost5.jpg" alt="" />
                     </div>
                     <div class="blog-content">
                         <div class="content-show">
@@ -157,7 +157,7 @@ $this->load->view('includes/slider');?>
             <div class="col-md-4 col-sm-6">
                 <div class="blog-post">
                     <div class="blog-thumb">
-                        <img src="images/blogpost6.jpg" alt="" />
+                        <img src="/public/images/blogpost6.jpg" alt="" />
                     </div>
                     <div class="blog-content">
                         <div class="content-show">
@@ -181,7 +181,7 @@ $this->load->view('includes/slider');?>
             <div class="col-md-12">
                 <div class="heading-section">
                     <h2>What Customers Say</h2>
-                    <img src="images/under-heading.png" alt="" >
+                    <img src="/public/images/under-heading.png" alt="" >
                 </div>
             </div>
         </div>

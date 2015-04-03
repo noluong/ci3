@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="logo">
-                    <a href="#"><img src="images/logo.png" title="Grill Template" alt="Grill Website Template" ></a>
+                    <a href="#"><img src="/public/images/logo.png" title="Grill Template" alt="Grill Website Template" ></a>
                 </div>
             </div>
             <div class="col-md-6">

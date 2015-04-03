@@ -1,0 +1,5 @@
+php_flag display_errors On
+RewriteEngine on
+RewriteBase /
+RewriteCond $1 !^(index\.php|images|.+\.css$|.+\.js$|.+\.png$|.+\.php$|.+\.mp4$|.+\.swf$|.+\.html$|.+\.jpg$|.+\.JPG$|.+\.gif$|.+\.ico$|robots\.txt|.+\.eot$|.+\.otf$|.+\.svg$|.+\.svgz$|.+\.ttf$|.+\.woff$)
+RewriteRule ^(.*)$ index.php/$1 [L]

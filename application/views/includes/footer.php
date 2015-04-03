@@ -50,7 +50,7 @@
                         <h4 class="footer-title">Recent posts</h4>
                         <div class="recent-post">
                             <div class="recent-post-thumb">
-                                <img src="images/recent-post1.jpg" alt="">
+                                <img src="/public/images/recent-post1.jpg" alt="">
                             </div>
                             <div class="recent-post-info">
                                 <h6><a href="#">Delicious and Healthy Menus</a></h6>
@@ -59,7 +59,7 @@
                         </div>
                         <div class="recent-post">
                             <div class="recent-post-thumb">
-                                <img src="images/recent-post2.jpg" alt="">
+                                <img src="/public/images/recent-post2.jpg" alt="">
                             </div>
                             <div class="recent-post-info">
                                 <h6><a href="#">Simple and effective meals</a></h6>
