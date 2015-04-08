@@ -27,9 +27,7 @@
   <ul class="sidebar-menu">
     <li class="header">MAIN NAVIGATION</li>
     <li class="active treeview">
-      <a href="#">
-        <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
-      </a>
+      <a href="/admin"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
     </li>
     <li class="treeview">
       <a href="#">
@@ -37,8 +35,8 @@
         <i class="fa fa-angle-left pull-right"></i>
       </a>
       <ul class="treeview-menu">
-        <li><a href="<?php echo ADMIN_THEME;?>pages/tables/simple.html"><i class="fa fa-circle-o"></i>Manager Category</a></li>
-        <li><a href="<?php echo ADMIN_THEME;?>pages/tables/simple.html"><i class="fa fa-circle-o"></i>Add Category</a></li>
+        <li><a href="/admin/category"><i class="fa fa-circle-o"></i>Manager Category</a></li>
+        <li><a href="/admin/category/edit"><i class="fa fa-circle-o"></i>Add Category</a></li>
       </ul>
     </li>
     <li class="treeview">

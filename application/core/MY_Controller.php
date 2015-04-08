@@ -1,13 +1,24 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class MY_Controller extends CI_Controller {
+/**
+ *
+ * @package	MY_Controller
+ * @author	Cybridge Asia
+ * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (http://ellislab.com/)
+ * @license	http://opensource.org/licenses/MIT	MIT License
+ * 
+ **/
+
+class MY_Controller extends CI_Controller 
+{
 
 	public $data = array();	
 
-	public function __construct(){		
+	public function __construct()
+	{		
 		parent::__construct();
 
-		if(ENVIRONMENT=="development"){ 
+		if(ENVIRONMENT=="development"){
 			$this->load->library('console');                        
 			$this->output->enable_profiler(true);
 			Console::log('Hey, this is really cool, If wanna delete me, see core/MY_Controller.php');

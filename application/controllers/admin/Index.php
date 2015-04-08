@@ -1,9 +1,19 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Index extends MY_Controller {
+/**
+ *
+ * @package	MY_Model
+ * @author	Cybridge Asia
+ * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (http://ellislab.com/)
+ * @license	http://opensource.org/licenses/MIT	MIT License
+ * 
+ **/
 
-	public function __construct(){
+class Index extends MY_Controller
+{
+
+	public function __construct()
+	{
 		parent::__construct();
 	}
 
