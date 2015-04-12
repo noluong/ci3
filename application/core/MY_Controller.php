@@ -24,6 +24,12 @@ class MY_Controller extends CI_Controller
 			Console::log('Hey, this is really cool, If wanna delete me, see core/MY_Controller.php');
 		}
 
+		if(!preg_match("/admin\/login/", $_SERVER['REQUEST_URI']) && preg_match("/^\/admin/", $_SERVER['REQUEST_URI'])){
+			if(!$this->session->userdata("admin")["loggedin"]){
+				redirect("/admin/login", "refresh");
+			}
+		}
+
 	}
 
 }
