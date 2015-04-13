@@ -33,7 +33,7 @@ class Login extends MY_Controller {
 				redirect($dashboard);
 			}
 			else{
-				$this->session->set_flashdata('error', '<ul class="error"><li>Email or password incorrect</li></ul>');
+				$this->session->set_flashdata('error', '<p class="error">Email or password incorrect</p>');
 				redirect('/admin/login', 'refresh');
 			}
 		}

@@ -27,6 +27,7 @@
       </div><!-- /.login-logo -->
       <div class="login-box-body">
         <p class="login-box-msg">Sign in</p>
+        <?php echo $this->session->flashdata('error');  ?>
         <?php echo form_open("", array('autocomplete' => 'off'));?>
           <div class="form-group has-feedback">
           	<input name="foilautofill" class="noDisplay" type="text" />

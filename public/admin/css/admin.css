@@ -253,12 +253,14 @@ strong, .bold { font-weight:bold; }
 	margin:0 auto 10px;
 	padding:8px 5px;
 	background-color:#FFD3C3;
+	color:red !important;
 }
 .error li {
 	padding-left:25px;
 	background:#FFD3C3 url(/docomo/img/icon/icon_error.gif) no-repeat 10px .35em;
 	/background-position:10px .2em;
 	color:#F00;
+	list-style: none;
 }
 .error input,
 .error textarea,

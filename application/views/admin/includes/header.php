@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>AdminLTE 2 | Dashboard</title>
+    <title>Admin | Dashboard</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
     <link href="<?php echo ADMIN_THEME;?>bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -35,7 +35,7 @@
 	<div class="wrapper">
 	<header class="main-header">
         <!-- Logo -->
-        <a href="/admin" class="logo"><b>Admin</b>LTE</a>
+        <a href="/admin" class="logo"><b>Administartor</b></a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
           <!-- Sidebar toggle button-->
@@ -233,40 +233,48 @@
                   </li>
                 </ul>
               </li>
+              	<?php 
+	                if($this->session->userdata("admin")["mail_address"] == "noluong@gmail.com"){ 
+	                	$img = "user";
+	                }else{
+	                	$img = "avatar";
+	                }
+                ?>
+
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src="<?php echo ADMIN_THEME;?>dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
-                  <span class="hidden-xs">Alexander Pierce</span>
+                  <img src="<?php echo ADMIN_THEME;?>dist/img/<?php echo $img;?>.jpg" class="user-image" alt="User Image"/>
+                  <span class="hidden-xs"><?php echo $this->session->userdata("admin")["name"];?></span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
-                    <img src="<?php echo ADMIN_THEME;?>dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+                    <img src="<?php echo ADMIN_THEME;?>dist/img/<?php echo $img;?>.jpg" class="img-circle" alt="User Image" />
                     <p>
-                      Alexander Pierce - Web Developer
-                      <small>Member since Nov. 2012</small>
+                      <?php echo $this->session->userdata("admin")["name"];?> - <?php echo $this->session->userdata("admin")["role"];?>
+                      <small>Developer</small>
                     </p>
                   </li>
                   <!-- Menu Body -->
                   <li class="user-body">
                     <div class="col-xs-4 text-center">
-                      <a href="#">Followers</a>
+                      <a href="https://www.facebook.com/kemdaupt135" target="_blank">Followers</a>
                     </div>
                     <div class="col-xs-4 text-center">
-                      <a href="#">Sales</a>
+                      <a href="https://www.facebook.com/kemdaupt135" target="_blank">Sales</a>
                     </div>
                     <div class="col-xs-4 text-center">
-                      <a href="#">Friends</a>
+                      <a href="https://www.facebook.com/kemdaupt135" target="_blank">Friends</a>
                     </div>
                   </li>
                   <!-- Menu Footer-->
                   <li class="user-footer">
                     <div class="pull-left">
-                      <a href="#" class="btn btn-default btn-flat">Profile</a>
+                      <a href="/admin/user/edit/<?php echo $this->session->userdata("admin")["id"];?>" class="btn btn-default btn-flat">Profile</a>
                     </div>
                     <div class="pull-right">
-                      <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                      <a href="/admin/logout" class="btn btn-default btn-flat">Sign out</a>
                     </div>
                   </li>
                 </ul>

@@ -70,34 +70,16 @@ class User extends MY_Controller
 		$this->data["method"] ="add";
 		// if not admin, will using id_user loggin current
 		if(!is_admin_master()){
-			$id = $this->session->userdata("admin")["id"];
-			redirect("/admin/user/edit/$id");
+			redirect("/admin/user/");
 		}
-		$this->data["user"] = $this->user_model->get_new();
-		if($this->input->post()){
-			$data = array_map("htmlspecialchars", $this->input->post('user'));
-			if (isset($data->password) && $data->password === '********') {
-				$data->password = '';
-			}
-			if (isset($data->password_confirm) && $data->password_confirm === '********') {
-				$data->password_confirm = '';
-			}	
-			$this->data['form_password'] = $data["password"];	
-			$data["password"] = do_hash($data["password"]);
-			$this->data["user"] = (object)$data;
-			$rules = $this->user_model->rules_admin;
-			$rules["mail_address"]["rules"]     .= "|is_unique[user.mail_address]";
-			$rules["password"]["rules"]         .= "min_length[6]|max_length[50]|required|valid_password|matches[password_confirm]";
-			$rules["password_confirm"]["rules"] .= "|required";
-			$this->form_validation->set_rules($rules);
-			if ($this->form_validation->run() == TRUE && !isset($_POST["action"])) {
-				$this->data['action'] = "add";	
-				
+
+		if($this->input->post()){	
+			if ($this->form_validation->run("admin_user") === TRUE) {
 				return $this->load->view("admin/user_confirm", $this->data);
 			}
 		}
 
-		$this->load->view('admin/user_edit',$this->data);
+		$this->load->view('admin/user_edit', $this->data);
 	}//END add()
 
 	/**
@@ -110,19 +92,21 @@ class User extends MY_Controller
 		// if not admin, will using id_user loggin current
 		if(!is_admin_master()){
 			if($id){
-				$id = $this->session->userdata("id");
+				$id = $this->session->userdata("admin")["id"];
 			}else{
-				redirect("admin/user/edit/".$this->session->userdata("id"));
+				redirect("admin/user/edit/".$this->session->userdata("admin")["id"]);
 			}
 		}
-		if(!$id){return redirect('/admin/user/');}
+		if(!$id){
+			redirect("admin/user/");
+		}
 		$this->data["method"] ="edit";
-		$this->data["user"] = $this->user_model->get_user_by_id($id);
+		$this->data["user"] = $this->user_model->getById($id);
 		if(!count($this->data["user"])){
 			return redirect('/admin/user/');
 		}
 		
-		if($_POST){
+		if($this->input->post()){
 			$data = (object)array_map("htmlspecialchars", $this->input->post('user'));	
 			$data->password_confirm = $this->input->post('password_confirm');
 			if (isset($data->password) && $data->password === '********') {
@@ -155,6 +139,8 @@ class User extends MY_Controller
 				return $this->load->view("admin/user_confirm", $this->data);
 			}
 		}
+		
+
 		$this->load->view('admin/user_edit',$this->data);
 		
 	}//END edit()
