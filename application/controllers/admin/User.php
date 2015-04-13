@@ -74,6 +74,25 @@ class User extends MY_Controller
 		}
 
 		if($this->input->post()){	
+			$user_s = (object)$this->input->post('user');
+
+			if (isset($user_s->password) && $user_s->password === '********') {
+				$user_s->password = '';
+			}
+			if (isset($user_s->password_confirm) && $user_s->password_confirm === '********') {
+				$user_s->password_confirm = '';
+			}	
+
+			$this->data['form_password'] = $user_s->password;	
+			$user_s->password            = do_hash($user_s->password);
+			$this->data["user"]          = $user_s;
+
+			$this->form_validation->add_rules([
+				'mail_address'     => '|is_unique[user.mail_address]',
+				'password'         => 'min_length[6]|max_length[50]|required|matches[password_confirm]',
+				'password_confirm' => '|required'
+			]);
+
 			if ($this->form_validation->run("admin_user") === TRUE) {
 				return $this->load->view("admin/user_confirm", $this->data);
 			}
@@ -141,7 +160,7 @@ class User extends MY_Controller
 		}
 		
 
-		$this->load->view('admin/user_edit',$this->data);
+		$this->load->view('admin/user_edit', $this->data);
 		
 	}//END edit()
 
@@ -150,7 +169,7 @@ class User extends MY_Controller
 	 *
 	 * @param  $id
 	 */
-	public function confirm(){
+	protected function confirm(){
 		if($this->input->post("form_data")){
 			$form_data = (array)unserialize($this->input->post("form_data"));
 			unset($form_data["method"]);
@@ -164,18 +183,18 @@ class User extends MY_Controller
 			}
 			if($this->user_model->save($form_data,$id)){
 				//if edit current user login then update session after edit 
-				if($id == $this->encrypt->decode($this->session->userdata("id"))){
+				if($id == $this->session->userdata("admin")["id"]){
 					if(!isset($form_data["role"])){
-						$form_data["role"] = "一般";
+						$form_data["role"] = "normal";
 					}
-					$session_user = array(
+					$session_user = array( 'admin' => array(
 						'mail_address' => $this->encrypt->encode($form_data["mail_address"]),
 						'name'         => $this->encrypt->encode($form_data["l_name"]."".$form_data["f_name"]),
 						'id'           => $this->encrypt->encode($form_data["id"]),
 						'role'         => $this->encrypt->encode($form_data["role"]),
 						'loggedin'     => TRUE,
+						),
 					);
-					$this->session->sess_expiration = '1800';
 					$this->session->set_userdata($session_user);
 				}		
 				unset($form_data);
