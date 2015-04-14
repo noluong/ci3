@@ -13,7 +13,7 @@ class MY_Controller extends CI_Controller
 {
 
 	public $data = array();	
-
+	
 	public function __construct()
 	{		
 		parent::__construct();
@@ -29,7 +29,6 @@ class MY_Controller extends CI_Controller
 				redirect("/admin/login", "refresh");
 			}
 		}
-
 
 	}
 

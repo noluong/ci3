@@ -26,3 +26,35 @@ function enum_select( $table , $field , $label = "" )
     }
     return $data;
 }
+
+
+/**
+ * create input hidden
+ * @param $field
+ * @param bool $array
+ * @return string
+ */
+function confirm($field, $array = false, $default = '')
+{
+    if(is_array($field)){
+        foreach ($field as $key => $value) {
+            $value_input = ($_POST[$key][$value]) ? $_POST[$key][$value]: null;
+            $name_input = $key."[".$value."]";
+            break;
+        }
+        return escape($value_input).form_hidden($name_input, $value_input);
+    }else{
+       $value = ($_POST[$field]) ? $_POST[$field]: null;
+        if((is_null($value) || $value === '') && func_num_args() === 3) {
+            return $default;
+        }elseif(is_array($value)) {
+        }
+    }
+
+    if(is_array($array)) {
+        if(isset($array[$value])) return e($array[$value]).form_hidden($field, $value);
+        return $default;
+    }
+    
+    return escape($value).form_hidden($field, $value);
+}

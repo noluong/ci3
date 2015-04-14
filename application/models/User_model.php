@@ -46,7 +46,7 @@ class User_model extends MY_Model
 	public function login(){
 		$where = array(
 			'mail_address' => $this->input->post('admin_mail_address'), 
-			'password' => do_hash($this->input->post('admin_password')),
+			//'password' => check_hash($this->input->post('admin_password')),
 		);
 		$this->db->select("*")->from($this->_table);
     	$this->db->where($where);

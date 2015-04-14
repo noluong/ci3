@@ -121,3 +121,43 @@ if (!function_exists('pagination')) {
 
 }
 
+
+function escape($param)
+{
+    return html_escape($param);
+}
+
+function submit_status()
+{
+    $submit = get_instance()->input->post('submit');
+    if(is_array($submit)) {
+        return key($submit);
+    }
+    return null;
+}
+
+function required()
+{
+    return '<span class="require"><img src="/public/user/img/common/icon_required.gif"></span>';
+}
+
+function str_limit($value, $limit = 100, $end = '...') {
+    if(!$value) return '';
+
+    $str  = mb_substr($value, 0, $limit);
+
+    if($str == $value) {
+        return $str;
+    }
+
+    $str .= $end;
+    return $str;
+}
+
+function img_embed($file_name, $type)
+{
+    $img_data  = base64encode(file_get_content($file_name));
+
+    if(!$type || !$img_data) return '';
+    return '<img src="data:'.$type.';'.$img_data.'" />';
+}

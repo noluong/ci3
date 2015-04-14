@@ -1,6 +1,4 @@
-<?php $html_head = [
-	'title'=>'Add user',
-];
+<?php
 if($method == "add"){
 	$html_head['title'] = "Add user";
 }else{
@@ -71,7 +69,7 @@ $this->load->view('admin/includes/left');?>
 			    </div><!-- /.box-body -->
 			    <div class="box-footer">
 			    	<?php echo form_hidden('id', set_value('id', @$user->id));  ?>
-		            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+		            <input type="submit" name="submit[confirm]" class="btn btn-primary" />
 		        </div>
 	      	<?php echo form_close();?>
 	    </div>
