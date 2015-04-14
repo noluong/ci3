@@ -29,11 +29,11 @@ $config = [
 	 */
 	"admin_user" => [
 		[
-			'field' => 'mail_address',
+			'field' => 'user[mail_address]',
 			'label' => 'Email',
 			'rules' => 'trim|required|valid_email|max_length[255]'
 		],[
-			'field' => 'password',
+			'field' => 'user[password]',
 			'label' => 'Password',
 			'rules' => ''
 		],[
@@ -41,7 +41,7 @@ $config = [
 			'label' => 'Password confirm',
 			'rules' => ''
 		],[
-			'field' => 'name',
+			'field' => 'user[name]',
 			'label' => 'Name',
 			'rules' => 'trim|required|max_length[25]'
 		],

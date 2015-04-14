@@ -69,31 +69,33 @@ class User extends MY_Controller
 	public function add(){
 		$this->data["method"] ="add";
 		// if not admin, will using id_user loggin current
+
 		if(!is_admin_master()){
 			redirect("/admin/user/");
 		}
 
 		if($this->input->post()){	
-			$user_s = (object)$this->input->post('user');
+			$user = (object)$this->input->post('user');
 
-			if (isset($user_s->password) && $user_s->password === '********') {
-				$user_s->password = '';
+			if(isset($user->password) && $user->password === '********'){
+				$user->password = '';
 			}
-			if (isset($user_s->password_confirm) && $user_s->password_confirm === '********') {
-				$user_s->password_confirm = '';
+
+			if(isset($user->password_confirm) && $user->password_confirm === '********'){
+				$user->password_confirm = '';
 			}	
 
-			$this->data['form_password'] = $user_s->password;	
-			$user_s->password            = do_hash($user_s->password);
-			$this->data["user"]          = $user_s;
-
+			$this->data['form_password'] = $user->password;	
+			$user->password              = do_hash($user->password);
+			$this->data["user"]          = $user;
+		
 			$this->form_validation->add_rules([
-				'mail_address'     => '|is_unique[user.mail_address]',
-				'password'         => 'min_length[6]|max_length[50]|required|matches[password_confirm]',
-				'password_confirm' => '|required'
+				'user[mail_address]' => 'is_unique[user.mail_address]',
+				'user[password]'     => 'min_length[6]|max_length[50]|required|matches[password_confirm]',
+				'password_confirm'   => 'required'
 			]);
 
-			if ($this->form_validation->run("admin_user") === TRUE) {
+			if($this->form_validation->run("admin_user") === TRUE){
 				return $this->load->view("admin/user_confirm", $this->data);
 			}
 		}

@@ -42,29 +42,29 @@ $this->load->view('admin/includes/left');?>
 			        <!-- select -->
 			        <div class="form-group">
 			        <label>Permission</label>
-			        <?php if(is_admin_master()){?>
-					<?php echo form_dropdown("user[role]", enum_select("user", "role"), set_value("user[role]", @$user->role), ['class' => 'form-control']); ?>
-					<?php }else{ ?>
-					<input type="text" name="user[role]" value="<?php echo $user->role; ?>" readonly= "true" style="border:none; background: #fff" />
-					<?php } ?>	
+				        <?php if(is_admin_master()){?>
+						<?php echo form_dropdown("user[role]", enum_select("user", "role"), set_value("user[role]", @$user->role), ['class' => 'form-control']); ?>
+						<?php }else{ ?>
+						<input type="text" name="user[role]" value="<?php echo $user->role; ?>" readonly= "true" style="border:none; background: #fff" />
+						<?php } ?>	
 			        </div>
 
 			        <!-- text input -->
-			        <div class="form-group">
+			        <div class="form-group <?php if(form_error('user[mail_address]')) echo 'has-error'; ?>">
 			          <label>Email</label>
 			          <input name="foilautofill" style="display: none;" type="text" />
-			          <input type="text" name="user[mail_address]" value="<?php echo set_value('user[mail_address]', @$user->mail_address); ?>" <?php if(form_error('user[mail_address]')) echo 'id="inputError"'; ?> class="form-control" />
+			          <input type="text" name="user[mail_address]" <?php if(form_error('user[mail_address]')) echo 'id="inputError"'; ?> value="<?php echo set_value('user[mail_address]', @$user->mail_address); ?>" class="form-control" />
 			        </div>
-					<div class="form-group">
+					<div class="form-group <?php if(form_error('user[password]')) echo 'has-error'; ?>">
 						<label>Password</label>
 						<input name="foilautofill" style="display: none;" type="text" />
 			            <input type="password" name="user[password]" <?php if(form_error('user[password]')) echo 'id="inputError"'; ?> class="form-control" autocomplete="off" />
 			        </div>
-			        <div class="form-group">
+			        <div class="form-group <?php if(form_error('password_confirm')) echo 'has-error'; ?>">
 						<label>Password confirm</label>
 			            <input type="password" name="password_confirm" <?php if(form_error('password_confirm')) echo 'id="inputError"'; ?> class="form-control" autocomplete="off" />
 			        </div>
-			        <div class="form-group">
+			        <div class="form-group <?php if(form_error('user[name]')) echo 'has-error'; ?>">
 			          	<label>Name</label>
 						<?php echo form_input(['name' => 'user[name]', 'value' => set_value('user[name]', @$user->name), 'class' => 'form-control']); ?>
 			        </div>

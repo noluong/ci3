@@ -103,7 +103,7 @@ $autoload['helper'] = ['common', 'url','form','debug','security', 'cookie', 'htm
 |
 */
 
-$autoload['config'] = array();
+$autoload['config'] = [];
 
 
 /*

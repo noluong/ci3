@@ -44,7 +44,7 @@
       </a>
       <ul class="treeview-menu">
         <li><a href="/admin/user"><i class="fa fa-circle-o"></i>Manager Users</a></li>
-        <li><a href="/admin/user/edit"><i class="fa fa-circle-o"></i>Add User</a></li>
+        <li><a href="/admin/user/add"><i class="fa fa-circle-o"></i>Add User</a></li>
       </ul>
     </li>
 
