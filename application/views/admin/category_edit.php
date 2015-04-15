@@ -17,7 +17,6 @@ $this->load->view('admin/includes/left');?>
     <li class="active">Add category</li>
   </ol>
 </section>
-
 <!-- Main content -->
 <section class="content">
   <div class="row">
@@ -26,27 +25,33 @@ $this->load->view('admin/includes/left');?>
 	        <div class="box-header">
 	          	<h3 class="box-title"><?php echo $html_head['title']; ?></h3>
 	        </div><!-- /.box-header -->
+	        <div class="mr10 ml10">
+				<?php if(validation_errors()){ ?>
+					<ul class="error">
+					<?php echo validation_errors(); ?>
+					</ul>
+				<?php } ?>
+			</div>
 	        <!-- form start -->
 	        <?php echo form_open('/admin/category/edit', ['role' => 'form', 'class' => ''], ['category_id' => @$data['id']]);?>
 		        <div class="box-body">
 			        <!-- select -->
 			        <div class="form-group">
-			          <label>Category parents</label>
-			          <select class="form-control" name="category[parent_id]">
-			          	<option value="0">Choose</option>
-			            <option>option 1</option>
-			            <option>option 2</option>
-			            <option>option 3</option>
-			            <option>option 4</option>
-			            <option>option 5</option>
-			          </select>
-			        </div>
-
+			          	<label>Category parents</label>
+			          	<dl id="sample" class="dropdown">
+					        <dt><a href="#"><span>Please select category </span></a></dt>
+					        <dd>
+					        	<ul>
+					            <?php echo html_dropdown_ul($all_category); ?>
+								</ul>
+					        </dd>
+					    </dl>
+						<div id="result"></div>
+					</div>
 			        <!-- text input -->
-			        <div class="form-group">
+			        <div class="form-group <?php if(form_error('category[name]')) echo 'has-error'; ?>">
 			          <label>Category name</label>
-			          <input type="text" name="category[name]" value="<?php echo set_value('category[name]'); ?>" <?php if(form_error('category[name]')) echo 'id="inputError"'; ?> class="form-control" placeholder="Enter ..." />
-			          <?php echo form_error('category[name]'); ?>
+			          <input type="text" name="category[name]" value="<?php echo set_value('category[name]'); ?>" class="form-control" placeholder="Enter ..." />
 			        </div>
 					<div class="form-group">
 						<label>Priority</label>

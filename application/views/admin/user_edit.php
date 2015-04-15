@@ -32,7 +32,6 @@ $this->load->view('admin/includes/left');?>
 					<?php echo validation_errors(); ?>
 					</ul>
 				<?php } ?>
-				<?php $this->session->flashdata('msg'); ?>
 			</div>
 	        <!-- form start -->
        		<?php echo form_open('', ['role' => 'form', 'method' => 'post', 'id' => 'form_member', 'autocomplete' => 'off']); ?>

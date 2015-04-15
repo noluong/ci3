@@ -28,7 +28,6 @@ class Category extends MY_Controller
 		$category_dropdown = $this->category_model->getCategoriesDropdown();
 		$category_tree     = $this->buildCategories($all_category);
 		
-
 		$search_data = [];
 		$uri = "/admin/category/index/";
 
@@ -39,7 +38,7 @@ class Category extends MY_Controller
 		// pagination
 		$search_data = (array)get_params(array('type' => 'URI'));
 		$page = has_item('page', $search_data, 1);
-		$limit = 1;
+		$limit = 20;
 		$offset = ($page - 1) * $limit;
 		$url = get_url($uri, $search_data).'/page/';
 
@@ -51,7 +50,7 @@ class Category extends MY_Controller
 		$total_rows = $this->category_model->getTotalRows($params);
 		$pagination = pagination($url, $total_rows, $limit, $page);
 
-		$this->load->view('admin/category_list', compact('category_s', 'pagination', 'params', 'category_dropdown'));
+		$this->load->view('admin/category_list', compact('category_s', 'pagination', 'params', 'category_dropdown', 'all_category'));
 	}
 
 	/**
@@ -61,6 +60,7 @@ class Category extends MY_Controller
 	 **/
 	public function edit($id = null)
 	{
+		$all_category      = $this->category_model->getCategories();
 		$data = [];
 		if($id){
 			$method = 'edit';
@@ -86,7 +86,7 @@ class Category extends MY_Controller
 		}
 
 
-		$this->load->view('admin/category_edit', compact('method', 'data'));
+		$this->load->view('admin/category_edit', compact('method', 'data', 'all_category'));
 	}
 
 	/**

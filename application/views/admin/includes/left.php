@@ -34,7 +34,7 @@
       </a>
       <ul class="treeview-menu">
         <li><a href="/admin/category"><i class="fa fa-circle-o"></i>Manager Category</a></li>
-        <li><a href="/admin/category/add"><i class="fa fa-circle-o"></i>Add Category</a></li>
+        <li><a href="/admin/category/edit"><i class="fa fa-circle-o"></i>Add Category</a></li>
       </ul>
     </li>
     <li class="treeview">

@@ -184,19 +184,17 @@ function html_dropdown($opt_s = array()) {
  * @param $str 
  *
  **/
-function html_dropdown_ul($data, $parent = 0)
+function html_dropdown_ul($data, $parent = 0, $text = "--")
 {
     foreach ($data as $key => $value) 
     {
-        echo '<ul>';
         if ($value['parent_id'] == $parent) 
         {
+            echo '<li><a href="#">'. $text.$value['name']. '<span class="value">'.$value['id'].'</span></a>';
             unset($data[$key]);
-            echo '<li><a href="#">'. $value['name']. '</a>';
-            html_dropdown_ul($data, $value['id']);
+            html_dropdown_ul($data, $value['id'], $text."--");
             echo '</li>';
         }
-        echo '</ul>';
     }
     
 }
