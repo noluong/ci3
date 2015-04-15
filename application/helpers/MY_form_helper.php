@@ -27,34 +27,33 @@ function enum_select( $table , $field , $label = "" )
     return $data;
 }
 
+if (!function_exists('get_values_of_form')) {
+    function get_values_of_form($obj1, $obj2, $return_obj = TRUE) {
+        $obj1 = (object)$obj1;
+        $obj2 = (object)$obj2;
+        foreach ($obj1 as $key => $value) {
+            if (isset($obj2->$key)) {
+                $obj1->$key = $obj2->$key;
+            }
+        }
+        return ($return_obj) ? $obj1 : (array)$obj1;
+    }
+}
 
 /**
- * create input hidden
- * @param $field
- * @param bool $array
- * @return string
- */
-function confirm($field, $array = false, $default = '')
+ * create pull down for select 
+ * @param $str 
+ *
+ **/
+function select_options($data, $str = null)
 {
-    if(is_array($field)){
-        foreach ($field as $key => $value) {
-            $value_input = ($_POST[$key][$value]) ? $_POST[$key][$value]: null;
-            $name_input = $key."[".$value."]";
-            break;
-        }
-        return escape($value_input).form_hidden($name_input, $value_input);
-    }else{
-       $value = ($_POST[$field]) ? $_POST[$field]: null;
-        if((is_null($value) || $value === '') && func_num_args() === 3) {
-            return $default;
-        }elseif(is_array($value)) {
-        }
+    $key_s = array_keys($data);
+
+    if(!is_null($str)) {
+        array_unshift($key_s, '');
+        array_unshift($data, $str);
     }
 
-    if(is_array($array)) {
-        if(isset($array[$value])) return e($array[$value]).form_hidden($field, $value);
-        return $default;
-    }
-    
-    return escape($value).form_hidden($field, $value);
+    return array_combine($key_s, $data);
 }
+

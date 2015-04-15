@@ -1,6 +1,4 @@
-<?php $html_head = [
-	'title'=>'Add category',
-];
+<?php
 if($method == "add"){
 	$html_head['title'] = "Add category";
 }else{

@@ -74,7 +74,7 @@ class User extends MY_Controller
 			redirect("/admin/user/");
 		}
 
-		if($this->input->post()){	
+		if($this->input->post()){
 			$user = (object)$this->input->post('user');
 
 			if(isset($user->password) && $user->password === '********'){
@@ -85,8 +85,9 @@ class User extends MY_Controller
 				$user->password_confirm = '';
 			}	
 
-			$user->password              = enhash($user->password);
-			$this->data["user"]          = $user;
+			$this->data['form_password'] = $user->password;
+			$user->password     = enhash($user->password);
+			$this->data["user"] = $user;
 		
 			$this->form_validation->add_rules([
 				'user[mail_address]' => 'is_unique[user.mail_address]',
@@ -94,7 +95,8 @@ class User extends MY_Controller
 				'password_confirm'   => 'required'
 			]);
 
-			if($this->form_validation->run("admin_user") === TRUE && submit_status() != "back"){
+			if($this->form_validation->run("admin_user") === TRUE && $this->input->post("action") != "back"){
+				$this->data['action'] = "add";	
 				return $this->load->view("admin/user_confirm", $this->data);
 			}
 		}
@@ -138,18 +140,25 @@ class User extends MY_Controller
 			}
 			
 			$this->form_validation->add_rules([
-				'user[mail_address]' => 'is_unique[user.mail_address]',
 				'user[password]'     => 'min_length[6]|max_length[50]|valid_password|matches[password_confirm]',
 			]);
 
+			// if edit mail_address
+			if($data->mail_address != $this->data["user"]->mail_address){
+				// add rule is_unique for mail_address
+				$this->form_validation->add_rules(['user[mail_address]' => 'is_unique[user.mail_address]']);
+			}
+
 			$this->data['user'] = get_values_of_form($this->data['user'], $data); 
-			if($this->form_validation->run("admin_user") === TRUE && submit_status() != "back"){
+
+			if($this->form_validation->run("admin_user") === TRUE && $this->input->post("action") != "back"){
 				if(empty($this->data['user']->password)){
 					unset($this->data['user']->password);
 				}else{
 					$this->data['form_password'] = $data->password;
 					$this->data['user']->password= enhash($this->data['user']->password);
 				}
+				$this->data['action'] = "edit/".$id;
 				return $this->load->view("admin/user_confirm", $this->data);
 			}
 
@@ -165,9 +174,8 @@ class User extends MY_Controller
 	 * @param  $id
 	 */
 	public function confirm(){
-		if($this->input->post("user") && submit_status() == "complete"){
-			$form_data = (array)($this->input->post("user"));
-			dd($form_data);
+		if($this->input->post("form_data")){
+			$form_data = (array)unserialize($this->input->post("form_data"));
 			unset($form_data["method"]);
 			if(!is_admin_master()){
 				unset($form_data["role"]);
@@ -184,10 +192,10 @@ class User extends MY_Controller
 						$form_data["role"] = "normal";
 					}
 					$session_user = array( 'admin' => array(
-						'mail_address' => $this->encrypt->encode($form_data["mail_address"]),
-						'name'         => $this->encrypt->encode($form_data["l_name"]."".$form_data["f_name"]),
-						'id'           => $this->encrypt->encode($form_data["id"]),
-						'role'         => $this->encrypt->encode($form_data["role"]),
+						'mail_address' => $form_data["mail_address"],
+						'name'         => $form_data["l_name"]."".$form_data["f_name"],
+						'id'           => $form_data["id"],
+						'role'         => $form_data["role"],
 						'loggedin'     => TRUE,
 						),
 					);

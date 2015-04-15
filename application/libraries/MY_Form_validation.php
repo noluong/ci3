@@ -146,17 +146,15 @@ class MY_Form_validation extends CI_Form_validation {
 		return $this;
 	}
 
-	public function form_data()
-	{
-		$field_data = [];
-
-		if($this->_field_data) {
-			$field_data = array_map(function($row) {
-				return preg_replace('#\[\]$#', '', $row);
-			}, array_keys($this->_field_data));
-		}
-
-		return array_intersect_key(get_instance()->input->post(), array_flip($field_data));
-	}
-
+	/**
+     * check_password allow alpha-numeric and special characters ! " # $ % & ' ( ) * + , \ -. / : ; < = > ? @ [ ] ^ _ ` { | } 
+     *
+     * @param  $str
+     */
+    public function valid_password($str){
+        if (!preg_match("/^[[:alnum:][:punct:]]*$/", $str)){
+            return FALSE;
+        }
+        return TRUE;
+    }//END _check_password()
 }

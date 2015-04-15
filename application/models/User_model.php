@@ -36,7 +36,7 @@ class User_model extends MY_Model
 					->where([
 						'id' => $id,
 					])
-					->get_row();
+					->get()->row();
 	}
 
 	/*
@@ -46,25 +46,27 @@ class User_model extends MY_Model
 	public function login(){
 		$where = array(
 			'mail_address' => $this->input->post('admin_mail_address'), 
-			//'password' => check_hash($this->input->post('admin_password')),
+			'is_active' => 1, 
 		);
 		$this->db->select("*")->from($this->_table);
     	$this->db->where($where);
     	$user = $this->db->get()->row();
-		if (empty($user)) {
-			return FALSE;
-		}
-		$data = array(
-			'admin' => array(
-				'mail_address' => $user->mail_address,
-				'name'         => $user->name,
-				'id'           => $user->id,
-				'role'         => $user->role,
-				'loggedin'     => TRUE,
-			),
-		);
-		$this->session->set_userdata($data);
-		return TRUE;
+
+    	if($user && check_hash($this->input->post('admin_password'), $user->password)){
+    		$data = [
+				'admin' => [
+					'mail_address' => $user->mail_address,
+					'name'         => $user->name,
+					'id'           => $user->id,
+					'role'         => $user->role,
+					'loggedin'     => TRUE,
+				],
+			];
+			$this->session->set_userdata($data);
+			return TRUE;
+    	}else{
+    		return FALSE;
+    	}
 	}//END login()	
 
 	/**

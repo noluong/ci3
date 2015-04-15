@@ -127,15 +127,6 @@ function escape($param)
     return html_escape($param);
 }
 
-function submit_status()
-{
-    $submit = get_instance()->input->post('submit');
-    if(is_array($submit)) {
-        return key($submit);
-    }
-    return null;
-}
-
 function required()
 {
     return '<span class="require"><img src="/public/user/img/common/icon_required.gif"></span>';
@@ -160,4 +151,52 @@ function img_embed($file_name, $type)
 
     if(!$type || !$img_data) return '';
     return '<img src="data:'.$type.';'.$img_data.'" />';
+}
+
+
+function html_dropdown($opt_s = array()) {
+    
+    $default = array(
+        'name' => '',
+        'id' => '',
+        'options' => array('' => 'Please choose'),
+        'value' => '',
+        'class' => '',
+        'style' => '',
+    );
+    $opt_s = array_merge($default, $opt_s);
+
+    if (empty($opt_s['name'])) {
+        return '';
+    }
+    $html = '<select name="'.$opt_s['name'].'" id="'.(empty($opt_s['id'])?$opt_s['name'] : $opt_s['id']).'" class="'.$opt_s["class"].'" style="'.$opt_s['style'].'" >';
+    foreach ($opt_s['options'] as $key => $value) {
+        $html .= '<option value="'.$key.'" ';
+        $html .= ($key == $opt_s['value']) ? 'selected >'.$value.'</option>' : '>'.$value.'</option>';
+    }
+    $html .= '</select>';
+    dd($html);
+    return $html;
+}
+
+/**
+ * create list category ul li 
+ * @param $str 
+ *
+ **/
+function html_dropdown_ul($data, $parent = 0)
+{
+    foreach ($data as $key => $value) 
+    {
+        echo '<ul>';
+        if ($value['parent_id'] == $parent) 
+        {
+            unset($data[$key]);
+            echo '<li><a href="#">'. $value['name']. '</a>';
+            html_dropdown_ul($data, $value['id']);
+            echo '</li>';
+        }
+        echo '</ul>';
+    }
+    
 }
