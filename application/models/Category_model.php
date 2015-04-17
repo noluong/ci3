@@ -36,7 +36,7 @@ class Category_model extends MY_Model
 					->where([
 						'id' => $id,
 					])
-					->get_row();
+					->get()->row();
 	}
 
 	/**
@@ -73,10 +73,8 @@ class Category_model extends MY_Model
      *  @param $all_level
      *	@dependence getCategories()
      */
-	public function getCategoriesDropdown($is_active = FALSE, $is_parent = FALSE){
-		$category_s = $this->getCategories($is_active, $is_parent);
+	public function getCategoriesDropdown($category_s = []){
         $data = [];
-
         foreach ($category_s as $value) {
             $data[$value["id"]] = $value["name"];   
         };

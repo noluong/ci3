@@ -119,6 +119,16 @@ function limit_text (str){
 
 
 $(document).ready(function() {
+	var category_id = $('#category_parent_id');
+    var category_name = category_id.attr('data-name');
+
+    $(".dropdown dd ul li a").each(function( index ) {
+    	if( $(this).find('span.value').html() == category_id.val() ){
+    		category_id.attr('data-name', $(this).attr('rel'));
+		}
+
+	});
+
 	$("#result").html('');
     $(".dropdown img.flag").addClass("flagvisibility");
 
@@ -127,15 +137,23 @@ $(document).ready(function() {
     });
                 
     $(".dropdown dd ul li a").click(function() {
-        var text = $(this).html();
+        var text = $(this).html();        
+        var name = $(this).attr('rel');
+
+       	$(".dropdown dt a").attr('rel', name);
         $(".dropdown dt a span").html(text);
+
+        var id = $("#sample").find("dt a span.value").html();
+        category_id.val(id);
+        category_id.attr('data-name', name);
+
         $(".dropdown dd ul").hide();
-        getSelectedValue("sample");
+        getSelectedValue();
     });
                 
     function getSelectedValue() {
     	var value = $("#sample").find("dt a span.value").html();
-        return $("#result").html('<input type="hidden" name="category[id]" value='+value+ '>');
+        return $("#result").html('<input type="hidden" name="category[parent_id]" value='+value+ '>');
     }
 
     $(document).bind('click', function(e) {
@@ -148,4 +166,11 @@ $(document).ready(function() {
     $("#flagSwitcher").click(function() {
         $(".dropdown img.flag").toggleClass("flagvisibility");
     });
+
+    //select auto
+    if(category_id.val() != "" && category_id.attr('data-name') != ""){
+    	$(".dropdown dt a").attr('rel', category_id.attr('data-name')); 
+    	$(".dropdown dt a span").html(category_id.attr('data-name')+'<span class="value">'+category_id.val()+'</span>');
+    	getSelectedValue();
+    }
 });

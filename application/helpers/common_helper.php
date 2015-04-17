@@ -93,3 +93,26 @@ if ( ! function_exists('has_item'))
         return (isset($obj->$item)) ? $obj->$item : $default;
     }
 }
+
+/**
+ * Get name of category 
+ * 
+ * @param	string
+ * @param	array|object
+ * @param	mixed
+ * @return	mixed	depends on what the array|object contains
+ */
+if ( ! function_exists('get_name_category'))
+{
+    function get_name_category($parent_id, $obj, $default = '')
+    {
+        $obj = (object)$obj;
+    	foreach ($obj as $key => $item) {
+    		if($key == $parent_id){
+    			return $item;
+    		}
+    	}
+        return $default;
+    }
+}
+

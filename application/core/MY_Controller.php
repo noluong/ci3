@@ -18,11 +18,11 @@ class MY_Controller extends CI_Controller
 	{		
 		parent::__construct();
 
-		if(ENVIRONMENT=="development"){
+		//if(ENVIRONMENT=="development"){
 			$this->load->library('console');                        
 			$this->output->enable_profiler(true);
 			Console::log('Hey, this is really cool, If wanna delete me, see core/MY_Controller.php');
-		}
+		//}
 
 		if(!preg_match("/admin\/login/", $_SERVER['REQUEST_URI']) && preg_match("/^\/admin/", $_SERVER['REQUEST_URI'])){
 			if(!$this->session->userdata("admin")["loggedin"]){

@@ -274,7 +274,7 @@ span.require {color:red;}
 -------------------------------------------------------------------*/
 .dropdown dd, .dropdown dt, .dropdown ul { margin:0px; padding:0px; }
 .dropdown dd { position:relative; z-index: 100}
-.dropdown a, .dropdown a:visited { color:#816c5b; text-decoration:none; outline:none;}
+.dropdown a, .dropdown a:visited { color:#555; text-decoration:none; outline:none;}
 .dropdown a:hover { color:#555;}
 .dropdown dt a:hover { color:#555; border: 1px solid #ccc;}
 .dropdown dt a {display:block; padding-right:20px;
@@ -284,7 +284,7 @@ span.require {color:red;}
                   left:0px; padding:5px 0px; position:absolute; top:2px; width:100%; min-width:170px; list-style:none;}
 .dropdown span.value { display:none;}
 .dropdown dd ul li a { padding:5px; display:block;}
-.dropdown dd ul li a:hover { background-color:blue; color: #fff}
+.dropdown dd ul li a:hover { background-color:#3986B3; color: #fff}
 
 .dropdown img.flag { border:none; vertical-align:middle; margin-left:10px; }
 .flagvisibility { display:none;}

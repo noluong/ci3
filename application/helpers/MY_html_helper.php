@@ -175,7 +175,6 @@ function html_dropdown($opt_s = array()) {
         $html .= ($key == $opt_s['value']) ? 'selected >'.$value.'</option>' : '>'.$value.'</option>';
     }
     $html .= '</select>';
-    dd($html);
     return $html;
 }
 
@@ -190,10 +189,30 @@ function html_dropdown_ul($data, $parent = 0, $text = "--")
     {
         if ($value['parent_id'] == $parent) 
         {
-            echo '<li><a href="#">'. $text.$value['name']. '<span class="value">'.$value['id'].'</span></a>';
+            echo '<li><a rel="'.$text.$value['name'].'">'. $text.$value['name']. '<span class="value">'.$value['id'].'</span></a>';
             unset($data[$key]);
             html_dropdown_ul($data, $value['id'], $text."--");
             echo '</li>';
+        }
+    }
+    
+}
+
+/**
+ * create list category option
+ * @param $str 
+ *
+ **/
+function html_dropdown_options($data, $parent = 0)
+{
+    foreach ($data as $key => $value) 
+    {
+        if ($value['parent_id'] == $parent)
+        {
+            echo '<option value="'.$value['id'].'">'.$value['name'];
+            unset($data[$key]);
+            html_dropdown_options($data, $value['id']);
+            echo '</option>';
         }
     }
     

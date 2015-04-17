@@ -27,7 +27,7 @@ $this->load->view('admin/includes/left');?>
 	          	<h3 class="box-title"><?php echo $html_head['title']; ?></h3>
 	        </div><!-- /.box-header -->
 	        <!-- form start -->
-	        <?php echo form_open("admin/category/confirm/"); ?>
+	        <?php echo form_open("admin/category/confirm"); ?>
 		        <div class="box-body">
 			        <div class="form-group">
 			          	<label>Category parent</label>
@@ -47,7 +47,7 @@ $this->load->view('admin/includes/left');?>
 			        </div>
 			    </div><!-- /.box-body -->
 			    <div class="box-footer">
-			    	<?php echo form_hidden('id', set_value('id', @$category->id)); ?>
+			    	<?php echo form_hidden('id', set_value('id', @$category->id));  ?>
 			    	<input type="hidden" name="form_data" value="<?php echo (htmlspecialchars(serialize($category))); ?>"/>
 		            <a class="btn btn-default" onclick="document.getElementById('backform').submit()">Back</a>
 		            <input type="submit" name="submit[complete]" class="btn btn-primary" />

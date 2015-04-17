@@ -15,6 +15,8 @@ class Category extends MY_Controller
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('category_model');
+		$this->data['all_category']      = $this->category_model->getCategories();
+		$this->data['category_dropdown'] = $this->category_model->getCategoriesDropdown($this->data['all_category']);
 	}
 
 
@@ -24,10 +26,9 @@ class Category extends MY_Controller
 	 **/
 	public function index()
 	{
-		$all_category      = $this->category_model->getCategories();
-		$category_dropdown = $this->category_model->getCategoriesDropdown();
-		$category_tree     = $this->buildCategories($all_category);
-		
+		$category_level_0              = $this->category_model->getCategories(FALSE, TRUE);
+		$this->data['category_parent'] = $this->category_model->getCategoriesDropdown($category_level_0);
+
 		$search_data = [];
 		$uri = "/admin/category/index/";
 
@@ -44,13 +45,13 @@ class Category extends MY_Controller
 
 		// params for search
 		unset($search_data['page']);
-		$params = $search_data;
+		$this->data['params'] = $search_data;
 
-		$category_s = $this->category_model->search($params, $limit, $offset);
-		$total_rows = $this->category_model->getTotalRows($params);
-		$pagination = pagination($url, $total_rows, $limit, $page);
+		$this->data['category_s'] = $this->category_model->search($this->data['params'], $limit, $offset);
+		$total_rows = $this->category_model->getTotalRows($this->data['params']);
+		$this->data['pagination'] = pagination($url, $total_rows, $limit, $page);
 
-		$this->load->view('admin/category_list', compact('category_s', 'pagination', 'params', 'category_dropdown', 'all_category'));
+		$this->load->view('admin/category_list', $this->data);
 	}
 
 	/**
@@ -60,34 +61,57 @@ class Category extends MY_Controller
 	 **/
 	public function edit($id = null)
 	{
-		$all_category      = $this->category_model->getCategories();
-		$data = [];
 		if($id){
-			$method = 'edit';
-			$data['id'] = $id;
-		}else{
-			$method = 'add';
-		}
-
-		//validation
-		if($this->form_validation->run("admin_category_edit")){
-			
-		}
-
-		//post data
-		if($this->input->post("category")){
-			$data['category'] = $this->input->post("category");
-			if($id){
-				$this->category_model->update($data['category'], $data['id']);
-				redirect("admin/category_list");
-			}else{
-				$this->category_model->save($data['category']);
+			$this->data["method"]   = 'edit';
+			$this->data["category"] = (object)$this->category_model->getById($id);
+			if(!$this->data["category"]){
+				redirect("admin/category/");
 			}
+		}else{
+			$this->data["method"]   = 'add';
+			$this->data["category"] = (object)$this->input->post("category");
 		}
 
-
-		$this->load->view('admin/category_edit', compact('method', 'data', 'all_category'));
+		//validation 
+		if($this->form_validation->run("admin_category_edit") === true && $this->input->post("action") != "back"){
+			$this->data["action"] = "edit/".$id;
+			return $this->load->view('admin/category_confirm', $this->data);
+		}
+		
+		$this->load->view('admin/category_edit', $this->data);
 	}
+
+	public function confirm(){
+		if($this->input->post("form_data")){
+			$form_data = (array)unserialize($this->input->post("form_data"));
+			$form_data["name_seo"] = change_title($form_data["name"]);
+			if($this->input->post("id")){
+				$id = $this->input->post("id");
+			}else{
+				$id = NULL;
+			}
+
+			$this->category_model->save($form_data, $id); 
+		}
+		redirect("/admin/category/", "refresh");
+	}
+
+	/**
+	 * delete a category
+	 *
+	 * @param  $id
+	 */
+	public function delete($id){
+		$get = $this->uri->uri_to_assoc(5);
+		if(empty($get) || $get[$this->security->get_csrf_token_name()] != $this->security->get_csrf_hash()){
+			redirect("admin/category");
+		}
+	
+		if($id && $this->category_model->getById($id)){
+			$this->category_model->delete($id);
+		}
+		redirect("admin/category");
+	}//END delete()
 
 	/**
 	 * build array category all level
