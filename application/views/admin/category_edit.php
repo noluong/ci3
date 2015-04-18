@@ -33,7 +33,7 @@ $this->load->view('admin/includes/left');?>
 				<?php } ?>
 			</div>
 	        <!-- form start -->
-	        <?php echo form_open('/admin/category/edit', ['role' => 'form', 'class' => ''], ['category_id' => @$data['id']]);?>
+	        <?php echo form_open('/admin/category/edit/'.@$category->id, ['role' => 'form', 'class' => ''], ['category_id' => @$data['id']]);?>
 		        <div class="box-body">
 			        <!-- select -->
 			        <div class="form-group">

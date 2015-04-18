@@ -113,6 +113,7 @@ input.hover:hover {
 .br0, .ba0 { border-right:none !important; }
 .bb0, .ba0 { border-bottom:none !important; }
 .bl0, .ba0 { border-left:none !important; }
+.ba1{border: 1px solid #000}
 .pb15 { padding-bottom: 15px !important;}
 .pd0{padding: 0 !important}
 .mr35, .mh35, .ma35 { margin-right:  35px !important; }
@@ -154,7 +155,7 @@ strong, .bold { font-weight:bold; }
 .right { text-align:right !important; }
 .underline { text-decoration:underline !important; }
 .textNoLine { text-decoration:none !important; }
-.wordBreak{word-break: break-all;}
+.wordBreak{word-break: break-word;}
 
 /* ------------------------------------------------------------------
 	1-5. List styles

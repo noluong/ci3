@@ -1,4 +1,5 @@
 <?php 
+
 if($method == "add"){
 	$html_head['title'] = "Confirm add category";
 }else{

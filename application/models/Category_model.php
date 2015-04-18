@@ -45,12 +45,11 @@ class Category_model extends MY_Model
      *  @param $options
      *	
      */
-	public function getCategories($is_active = FALSE, $is_parent = FALSE){
+	public function getCategories($parent_id = 'all', $is_active = FALSE){
 		$where = [];
 
-		//only category parent level 1
-		if($is_parent){
-			$where = ['parent_id' => 0];
+		if($parent_id != 'all'){
+			$where = ['parent_id' => $parent_id];
 		}
 
 		//flag active

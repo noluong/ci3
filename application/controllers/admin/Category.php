@@ -26,7 +26,7 @@ class Category extends MY_Controller
 	 **/
 	public function index()
 	{
-		$category_level_0              = $this->category_model->getCategories(FALSE, TRUE);
+		$category_level_0              = $this->category_model->getCategories("0");
 		$this->data['category_parent'] = $this->category_model->getCategoriesDropdown($category_level_0);
 
 		$search_data = [];

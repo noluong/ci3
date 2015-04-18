@@ -53,8 +53,8 @@ if($this->session->userdata("admin")["mail_address"] == "noluong@gmail.com"){
 					<i class="fa fa-angle-left pull-right"></i>
 				</a>
 				<ul class="treeview-menu">
-					<li><a href="/admin/new"><i class="fa fa-circle-o"></i>Manager News</a></li>
-					<li><a href="/admin/new/edit"><i class="fa fa-circle-o"></i>Add New</a></li>
+					<li><a href="/admin/news"><i class="fa fa-circle-o"></i>Manager News</a></li>
+					<li><a href="/admin/news/edit"><i class="fa fa-circle-o"></i>Add New</a></li>
 				</ul>
 			</li>
 

@@ -61,4 +61,35 @@ $config = [
 			'rules' => 'trim|required'
 		],
 	],
+
+	/*
+	 *  admin news
+	 */
+	"admin_news" => [
+		[
+			'field' => 'news[category_id]',
+			'label' => 'Category',
+			'rules' => 'trim|numeric',
+		],[
+			'field' => 'news[title]',
+			'label' => 'Title',
+			'rules' => 'trim|required|max_length[60]',
+		],[
+			'field' => 'news[summary]',
+			'label' => 'Summary',
+			'rules' => 'trim|max_length[60]',
+		],[
+			'field' => 'news[content]',
+			'label' => 'Content',
+			'rules' => 'trim|required',
+		],[
+			'field' => 'news[keywords]',
+			'label' => 'Keywords',
+			'rules' => 'trim|required|max_length[160]',
+		],[
+			'field' => 'news[description]',
+			'label' => 'Description',
+			'rules' => 'trim|required|max_length[160]',
+		],
+	],
 ];

@@ -1,6 +1,6 @@
 <?php
 /**
- * New Model
+ * News Model
  *
  * @package   Category Model
  * @version   1.0
@@ -8,11 +8,11 @@
  *
  */
 
-class New_model extends MY_Model
+class News_model extends MY_Model
 {	
     protected $_table = "news";
     protected $_pk = "id";
-	protected $_order = "created DESC";
+	protected $_order = "created ASC";
 	protected $_timestamps = TRUE;
 
 	public function __construct ()
