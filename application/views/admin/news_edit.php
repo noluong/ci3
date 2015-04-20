@@ -31,20 +31,23 @@ $this->load->view('admin/includes/left');?>
 					<?php echo validation_errors(); ?>
 					</ul>
 				<?php } ?>
+				<?php if(isset($error) && $error){ echo '<ul class="error"><li>'.$error.'</li></ul>'; }?>
 			</div>
 	        <!-- form start -->
-	        <?php echo form_open('/admin/news/edit/'.@$news->id, ['role' => 'form', 'class' => '']);?>
+	        <?php echo form_open_multipart('/admin/news/edit/'.$com.'/'.@$news->id, ['role' => 'form', 'class' => '']);?>
 		        <div class="box-body">
-			        <!-- select -->
-			        <div class="form-group">
-			          	<label>Category</label>
-			          	<?php echo form_dropdown("news[category_id]", select_options($category_dropdown, "Please choose"), set_value("news[category_id]", @$news->category_id), ['class' => 'form-control']); ?>
-						<div id="result"></div>
-					</div>
 			        <!-- text input -->
 			        <div class="form-group <?php if(form_error('news[title]')) echo 'has-error'; ?>">
 			          <label>Title (max: 60 characters)</label>
 			          <input type="text" name="news[title]" value="<?php echo set_value('news[title]', @$news->title); ?>" class="form-control" />
+			        </div>
+					 <!-- file input -->
+			        <div class="form-group">
+			          <label>Upload photo</label><br />
+			        	<?php if(isset($news->photo) && $news->photo){ ?>
+						<img src="/uploads/news/<?php echo $news->photo; ?>" width="200" /><br /><br />
+			          	<?php } ?>
+			          <input type="file" name="userfile" class="form-control" />
 			        </div>
 			        <!-- textarea -->
 			        <div class="form-group <?php if(form_error('news[summary]')) echo 'has-error'; ?>">

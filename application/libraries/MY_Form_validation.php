@@ -157,4 +157,24 @@ class MY_Form_validation extends CI_Form_validation {
         }
         return TRUE;
     }//END _check_password()
+
+
+    /**
+    * Kiểm tra URL
+    * 
+    * @param mixed $str
+    */
+    public function valid_url($str){
+        $length = mb_strlen($str);
+        $width = mb_strwidth($str);
+        if($width > $length){
+            return FALSE;
+        }
+        $pattern = "/^(http|https):\/\/((www\.)?|www\.)[a-z0-9]+(?:[-.][a-z0-9]+)*\.[a-z]{2,5}(?::[0-9]{1,5})?(?:\/\S*)?$/i";
+        if (!preg_match($pattern, $str))
+        {
+            return FALSE;
+        }
+        return TRUE;
+    }
 }

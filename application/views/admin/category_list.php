@@ -69,7 +69,9 @@ $this->load->view('admin/includes/left');?>
 			          <td><?php echo $item->priority; ?></td>
 			          <td>
 			            <a href="/admin/category/edit/<?php echo $item->id; ?>"><i class="fa fa-edit"></i> Edit</a><br />
+			            <?php if($item->id > 6){?>
 			            <a data-alert="Do you want delete this category ?" class="confirm" href="/admin/category/delete/<?php echo $item->id; ?>/<?php echo $this->security->get_csrf_token_name(); ?>/<?php echo $this->security->get_csrf_hash(); ?>"><i class="fa fa-trash-o"></i> Delete</a>
+			            <?php } ?>
 			          </td>
 			        </tr>
 			        <?php		

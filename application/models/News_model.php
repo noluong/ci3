@@ -54,6 +54,9 @@ class News_model extends MY_Model
 		if(!empty($params["id"])) {
 			$this->db->where("category_id", $params["id"]);
 		} 
+		if(!empty($params["com"])) {
+			$this->db->where("com", $params["com"]);
+		} 
 
 	}
 
@@ -85,4 +88,22 @@ class News_model extends MY_Model
 		return $data->num_rows();
 	}//END get_total_rows()
 
+	public function getArticles($option = null) {
+
+		$this->db->select("*")
+			->from($this->_table)
+			->where("is_active", 1);
+		if(!empty($option["com"])){
+			$this->db->where("com", $option["com"]);
+		}
+		if(!empty($option["is_special"])){
+			$this->db->where("is_special", $option["is_special"]);
+		}
+
+		if(!empty($option["limit"])){
+			$this->db->limit($option["limit"]);
+		}
+		$data = $this->db->get()->result_array();
+		return $data;
+	}	
 }

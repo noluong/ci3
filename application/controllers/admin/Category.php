@@ -106,7 +106,9 @@ class Category extends MY_Controller
 		if(empty($get) || $get[$this->security->get_csrf_token_name()] != $this->security->get_csrf_hash()){
 			redirect("admin/category");
 		}
-	
+		if($id <=3){
+			redirect("admin/category");
+		}
 		if($id && $this->category_model->getById($id)){
 			$this->category_model->delete($id);
 		}

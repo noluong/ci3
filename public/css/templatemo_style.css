@@ -8,12 +8,12 @@ http://www.templatemo.com/preview/templatemo_417_grill
 /*-- Basic --*/
 a {
   text-decoration: none;
-  color: #f78e21;
+  color: #0CAC3D;
 }
 
 a:hover {
   text-decoration: none;
-  color: #f78e21;
+  color: #0CAC3D;
 }
 
 .blue {
@@ -32,7 +32,7 @@ p {
 
 .heading-section {
   text-align: center;
-  padding: 100px 0 80px 0;
+  padding: 30px 0 30px 0;
 }
 
 .heading-section h2 {
@@ -59,7 +59,7 @@ p {
 
 /*-- Header --*/
 #top-header {
-  background-color: #333;
+  background:url(../images/nav-bg.png) repeat-x;
   color: #fff;
 }
 
@@ -69,6 +69,7 @@ p {
   padding: 10px 0;
   font-size: 13px;
   font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
 }
 
 .cart-info {
@@ -80,6 +81,9 @@ p {
 
 .logo {
   padding: 20px 0;
+}
+.logo img{
+  max-width: 100%;
 }
 
 .main-menu ul {
@@ -100,11 +104,11 @@ p {
   font-size: 14px;
   color: #444;
   text-transform: uppercase;
-  margin-right: 35px;
+  margin-right:22px;
 }
 
 .main-menu a:hover {
-  color: #f78e21;
+  color: #0CAC3D;
 }
 
 .search-box {
@@ -183,7 +187,7 @@ p {
 }
 
 .timeline-thumb:hover {
-  border-color: #f78e21;
+  border-color: #0CAC3D;
 }
 
 .timeline-thumb .thumb img {
@@ -222,7 +226,7 @@ p {
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   font-weight: 300;
-  color: #f78e21;
+  color: #0CAC3D;
 }
 
 /*-- End Timeline --*/
@@ -279,7 +283,7 @@ p {
 }
 
 .author-caption a:hover {
-  background-color: #f78e21;
+  background-color: #0CAC3D;
   color: #fff;
 }
 
@@ -298,7 +302,7 @@ p {
 }
 
 .author-details span {
-  color: #f78e21;
+  color: #0CAC3D;
   text-transform: uppercase;
 }
 
@@ -362,7 +366,7 @@ p {
 
 
 #filters span:hover {
-  color: #f78e21;
+  color: #0CAC3D;
   transition: all 0.3s ease-in;
 }
 
@@ -371,7 +375,7 @@ p {
 }
 
 .label-text a:hover {
-  color: #f78e21;
+  color: #0CAC3D;
 }
 
 .label-text h3 {
@@ -388,7 +392,7 @@ p {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   display: block;
-  color: #f78e21
+  color: #0CAC3D
 }
 
 .portfolio-thumb img {
@@ -412,7 +416,7 @@ p {
   margin-left: -18px;
   margin-top: -18px;
   background-color: rgba(0,0,0, 0.1);
-  border: 1px solid #f78e21;
+  border: 1px solid #0CAC3D;
   width: 80px;
   height: 80px;
   line-height: 80px;
@@ -432,7 +436,7 @@ p {
   text-align: center;
   font-size: 13px;
   width: 100%;
-  color: #f78e21;
+  color: #0CAC3D;
   font-weight: 300;
 }
 
@@ -479,7 +483,7 @@ p {
 }
 
 .pagination a:hover {
-  background-color: #f78e21;
+  background-color: #0CAC3D;
 }
 
 /*- End Products --*/
@@ -507,7 +511,7 @@ p {
 .product-title span {
   display: inline-block;
   font-size: 13px;
-  color: #f78e21;
+  color: #0CAC3D;
 } 
 
 .product-content a {
@@ -560,7 +564,7 @@ p {
 
 .comment-body span {
   font-size: 14px;
-  color: #f78e21;
+  color: #0CAC3D;
 }
 
 .comment-body p {
@@ -571,7 +575,7 @@ p {
   text-transform: uppercase;
   font-size: 14px;
   color: #fff;
-  background-color: #f78e21;
+  background-color: #0CAC3D;
   width: 80px;
   height: 30px;
   line-height: 30px;
@@ -620,14 +624,14 @@ textarea {
   color: #999999;
 }
 
-.send button {
+.send button, .send input[type="submit"] {
   width: 90px;
   color: #fff;
   cursor: pointer;
   height: 35px;
   line-height: 30px;
   text-align: center;
-  background-color: #f78e21; 
+  background-color: #0CAC3D; 
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -637,13 +641,17 @@ textarea {
   outline: none;
 }
 
+ .send input[type="submit"]{
+  line-height: 20px;
+ }
+
 .leave input {
   width: 90px;
   cursor: pointer;
   height: 35px;
   line-height: 30px;
   text-align: center;
-  background-color: #f78e21; 
+  background-color: #0CAC3D; 
   color: #fff;
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
@@ -668,6 +676,10 @@ textarea {
   padding-bottom: 20px;
 }
 
+.message-form  .form_input {
+  margin-top: 20px;
+}
+
 .send {
   margin-top: 20px;
 }
@@ -690,7 +702,7 @@ textarea {
 }
 
 .info i {
-  color: #f78e21;
+  color: #0CAC3D;
   margin-right: 10px;
   font-size: 18px;
 }
@@ -707,7 +719,7 @@ textarea {
   font-weight: 700;
   color: #fff;
   text-transform: uppercase;
-  background-color: #f78e21;
+  background-color: #0CAC3D;
   margin-top: 0px;
   padding: 9px 15px 9px 15px;
 }
@@ -727,7 +739,7 @@ textarea {
 .archives-list i {
   font-size: 16px;
   margin-right: 5px;
-  color: #f78e21;
+  color: #0CAC3D;
 }
 
 .archives-list a {
@@ -737,7 +749,7 @@ textarea {
 }
 
 .archives-list a:hover {
-  color: #f78e21;
+  color: #0CAC3D;
 }
 
 .recent-post {
@@ -774,13 +786,13 @@ textarea {
 }
 
 .recent-post-info a:hover {
-  color: #f78e21;
+  color: #0CAC3D;
 }
 
 .recent-post-info span {
   font-family: 'Open Sans', sans-serif;
   font-size: 13px;
-  color: #f78e21;
+  color: #0CAC3D;
 }
 
 .flickr-images {
@@ -794,7 +806,7 @@ textarea {
 }
 
 .flickr-images img:hover {
-  border: 3px solid #f78e21;
+  border: 3px solid #0CAC3D;
   transition: all 0.1s ease-in;
   cursor: pointer;
 }
@@ -825,7 +837,7 @@ textarea {
   font-size: 48px;
   padding-bottom: 10px;
   font-weight: 500;
-  color: #f78e21;
+  color: #0CAC3D;
   text-transform: uppercase;
 }
 
@@ -840,7 +852,7 @@ textarea {
   margin-top: 20px;
   text-decoration: none;
   display: inline-block;
-  background-color: #f78e21;
+  background-color: #0CAC3D;
   width: 200px;
   height: 40px;
   text-align: center;
@@ -865,8 +877,8 @@ textarea {
 
 .icon i {
   border-radius: 50%;
-  border: 20px solid #f78e21;
-  color: #f78e21;
+  border: 20px solid #0CAC3D;
+  color: #0CAC3D;
   font-size: 28px;
   line-height: 80px;
   width: 120px;
@@ -909,7 +921,7 @@ textarea {
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(12, 172, 61, 0.6);
   color: #fff;
   padding: 15px;
 }
@@ -923,7 +935,7 @@ textarea {
 }
 
 .content-show span {
-  color: #f78e21;
+  color: #0CAC3D;
 }
 
 .content-hide {
@@ -968,7 +980,7 @@ textarea {
 
 footer {
   background-color: #f3f3f3;
-  border-top: 4px solid #f78e21;
+  border-top: 4px solid #0CAC3D;
   margin-top: 120px;
 }
 
@@ -979,12 +991,12 @@ footer {
 
 .social-bottom span {
   font-family: 'Open Sans', sans-serif;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 600;
   color: #333;
   text-transform: uppercase;
   float: left;
-  margin-right: 26px;
+  margin-right: 5px;
 }
 
 .social-bottom ul {
@@ -1005,10 +1017,11 @@ footer {
   line-height: 36px;
   text-align: center;
   color: #bbb;
+  border: 1px solid #0CAC3D;
 }
 
 .social-bottom a:hover {
-  background-color: #f78e21;
+  background-color: #0CAC3D;
   color: #fff;
 }
 
@@ -1056,7 +1069,7 @@ footer {
   width: 280px;
   margin-top: 0px;
   outline: 0;
-  border-color: #f3f3f3;
+  border-color: #0CAC3D;
 }
 
 .footer-title {
@@ -1081,7 +1094,7 @@ footer {
 .shop-list i {
   font-size: 16px;
   margin-right: 5px;
-  color: #f78e21;
+  color: #0CAC3D;
 }
 
 .shop-list a {
@@ -1091,7 +1104,7 @@ footer {
 }
 
 .shop-list a:hover {
-  color: #f78e21;
+  color: #0CAC3D;
 }
 
 .recent-post {
@@ -1123,13 +1136,13 @@ footer {
 }
 
 .recent-post-info a:hover {
-  color: #f78e21;
+  color: #0CAC3D;
 }
 
 .recent-post-info span {
   font-family: 'Open Sans', sans-serif;
   font-size: 13px;
-  color: #f78e21;
+  color: #0CAC3D;
 }
 
 .more-info p {
@@ -1150,7 +1163,7 @@ footer {
 }
 
 .more-info i {
-  color: #f78e21;
+  color: #0CAC3D;
   margin-right: 10px;
   font-size: 18px;
 }
@@ -1177,6 +1190,7 @@ footer {
   .home-account {
     text-align: center;
     display: block;
+    font-weight: bold;
   }
 
   .cart-info {
@@ -1325,10 +1339,39 @@ footer {
 
 }
 
+.img-hotline{
+  max-width: 100%;
+  margin-top:10px;
+  text-align: center;
+}
+.img-text-hotline{
+  position: absolute;
+  top: 28px;
+  left: 96px;
+  font-size: 23px;
+  color: #018546;
+}
+
+.text-hotline{
+  font-size: 25px;
+  display: none;
+}
+
+.error{
+  font-size: 13px;
+  color: red;
+  margin-top: 10px;
+}
 @media screen and (max-width: 1000px) {
 
   .slider-caption {
     display: none;
+  }
+  .img-hotline, .img-text-hotline{
+    display: none;
+  }
+  .text-hotline{
+    display: block;
   }
 }
 
@@ -1354,4 +1397,81 @@ footer {
   }
 }
 
+@media screen and (max-width: 600px) {
+
+}
 /*--- END RESPONSIVE ---*/
+
+
+  
+/* = Post , Blog
+-------------------------------------------------------------- */
+.post-entry {display: inline-block;width: 100%;margin-bottom: 30px;border-bottom: 1px dashed #e0e0e0;padding-bottom: 30px;}
+.post-entry .post-date-type {width: 100px;float: left;border: 1px solid #f0f0f0;background: #f7f7f7;padding: 10px 5px;text-align: center;}
+.post-entry .post-date-type .day {font-size: 30px;line-height: 32px;font-weight: bold;color: #222;}
+.post-entry .post-date-type .month-year {color: #444;font-size: 14px;line-height: 20px;}
+.post-entry .post-date-type .post-type {background: #cc3333;color: #fff;padding: 5px;width: 30px;height: 30px;line-height: 20px;margin: 10px auto 0;border-radius: 40px;font-size: 14px;}
+.post-entry .post-content {margin-left: 120px;}
+.post-entry .post-element-content {width: 100%;margin-bottom: 20px;float: left;}
+
+/* style 2 */
+.blog-style-2.post-entry .post-content {margin:0;}
+.blog-style-2.post-entry .entry-title {margin-top:10px;}
+.blog-style-2.post-entry .post-element-content {float: none;width:auto;}
+
+/* image format */
+.post-img {position:relative;}
+.post-img a {display:block;}
+.post-tip {position: absolute;left: 0px;top: 0px;width: 100%;height: 100%;overflow: hidden;opacity:0;}
+.post-img:hover .post-tip {opacity:1;}
+.post-tip .bg {width: 100%;height: 100%;background: #cc3333;opacity: 0;}
+.post-img:hover .post-tip .bg {opacity: 0.9;-webkit-transition: 600ms;-moz-transition: 600ms;-o-transition: 600ms;transition: 600ms;}
+.post-img i {margin-right:0 !important;}
+.post-img .pop-link-icon, 
+.post-img .pop-preview-icon {
+  width: 50px;height: 50px;border-radius: 40px;text-align: center;font-size: 18px;
+  padding: 10px;line-height: 30px;display: inline-block;background: rgba(0,0,0,0.7);
+  color: #ffffff;position: absolute;margin-top: -25px;top: 50%;left: 50%;
+  transform: scale(0,0);
+  -ms-transform: scale(0,0);
+  -webkit-transform: scale(0,0);
+  -webkit-transition: 600ms;
+  -moz-transition: 600ms;
+  -o-transition: 600ms;
+  transition: 600ms;
+}
+.post-img .pop-preview-icon {margin-left:-60px;}
+.post-img .center{margin-left:-25px !important;}
+.post-img .pop-link-icon {margin-left:10px;}
+.post-img .pop-link-icon:hover, 
+.post-img .pop-preview-icon:hover {background: rgba(0,0,0,1);}
+.post-img:hover .post-tip .pop-link-icon ,
+.post-img:hover .post-tip .pop-preview-icon {transform: scale(1,1);-ms-transform: scale(1,1);-webkit-transform: scale(1,1);}
+
+/* quote */
+.post-quote {padding: 30px 30px 30px 80px;background: #cc3333;border: #cf020a 1px solid;text-align: left;position: relative;color: #222;font-size: 16px;font-weight: bold;text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);border-radius: 3px;}
+.post-quote-icon {position: absolute;top: 50%;font-size: 30px;width: 30px;display: inline-block;height: 30px;text-align: center;color: #ffffff;line-height: 30px;left: 25px;margin-top: -15px;}
+.post-quote blockquote {margin:0;border-left: 5px solid #eee;}
+
+.post-entry .entry-header {width:100%;}
+.post-entry .entry-title {margin: 0 0 10px;padding: 0;}
+.post-entry .entry-meta {margin-bottom: 10px;color: #999;}
+
+.blog-style-1.post-entry .more-link {float: right;}
+.post-entry .entry-meta .post-edit-link {margin-left:5px;}
+
+/* single post */
+.single-post-date-type {float:left;}
+.single-post-date-type .post-type {padding: 10px;width: 40px;height: 40px;text-align: center;background: #cc3333;font-size: 18px;line-height: 20px;color: #ffffff;border-radius: 40px;}
+
+.single .post-entry .post-content {margin-left: 60px;}
+.single .post-entry .entry-tags {margin:20px 0;}
+.single .post-entry .entry-tags > span {font-weight:bold;color:#444;}
+.single .post-entry .post-content .entry-content {margin-bottom:20px;}
+
+.single .post-entry .post-author {border-left: 3px solid #ddd;padding: 10px 20px;margin-bottom: 20px;min-height: 100px;}
+.single .post-entry .post-author .post-avatar {width:80px;height:80px;float:left;}
+.single .post-entry .post-author .post-author-content {margin-left: 90px;}
+.single .post-entry .post-author .author-name {margin:0 0 10px;}
+
+.single .post-entry  .post-share {margin-bottom: 10px;}

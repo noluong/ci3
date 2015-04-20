@@ -24,6 +24,7 @@ class Index extends MY_Controller
 	 **/
 	public function index()
 	{
+		$this->load->library('Online_users');
 		$this->load->view('admin/index');
 	}
 }

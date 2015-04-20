@@ -27,15 +27,15 @@ $this->load->view('admin/includes/left');?>
 	          	<h3 class="box-title"><?php echo $html_head['title']; ?></h3>
 	        </div><!-- /.box-header -->
 	        <!-- form start -->
-	        <?php echo form_open("admin/news/confirm"); ?>
+	        <?php echo form_open("admin/news/confirm/".$com); ?>
 		        <div class="box-body">
-			        <div class="form-group">
-			          	<label>Category name</label>
-						<div><?php if(isset($news->category_id)){ echo get_name_category($news->category_id, $category_dropdown);} ?></div>
-			        </div>
 			        <div class="form-group">
 			          	<label>Title</label>
 						<div><?php echo $news->title;?></div>
+			        </div>
+			        <div class="form-group">
+			          	<label>Photo</label>
+						<div><img src="<?php echo UPLOAD_NEWS.$news->photo;?>" width="200" /></div>
 			        </div>
 			        <div class="form-group">
 			          	<label>Summary</label>

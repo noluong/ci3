@@ -173,4 +173,7 @@ $(document).ready(function() {
     	$(".dropdown dt a span").html(category_id.attr('data-name')+'<span class="value">'+category_id.val()+'</span>');
     	getSelectedValue();
     }
+
+    $('.msg').delay(5000).fadeOut();
+    
 });

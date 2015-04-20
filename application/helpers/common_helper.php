@@ -116,3 +116,51 @@ if ( ! function_exists('get_name_category'))
     }
 }
 
+
+// --------------------------------------------------------------------
+
+/**
+ * sending_email
+ *
+ * Process send email
+ *
+ * @access	public
+ * @param   templates		name of template file
+ * @param   replace_list	array string need replace   
+ * @param   param 			param("email", "subject")
+ * @return  string
+ */ 
+function sending_email($template,$replace_list,$param){
+	
+	$ci =& get_instance();
+	//load email library
+    $ci->load->library('email');
+    
+	$ci->load->helper("file");
+    //read email template
+  	$mail_content = read_file('./application/views/templates/'.$template.'.tpl');
+  	
+	foreach ($replace_list as $key => $value) {
+		$mail_content = str_replace("###$key###",$value , $mail_content);
+	}
+
+    //sending email
+    $ci->email->set_mailtype("text");
+    $ci->email->from(NO_REPLY_EMAIL, AUTOMAIL_NAME);
+    $ci->email->to($param["email"]); 
+    if(isset($param["bcc_email"]) and !empty($param['bcc_email'])){
+    	$ci->email->bcc($param["bcc_email"]); 
+    }
+    if(isset($param["cc_email"]) and !empty($param['cc_email'])){
+    	$ci->email->cc($param["cc_email"]); 
+    }
+    $ci->email->subject($param["subject"]);
+    $ci->email->message($mail_content);
+    if(isset($param["attach"]) and !empty($param['attach'])){
+    	foreach ($param["attach"] as $value) {
+    		$ci->email->attach($value); 
+    	}
+    }
+    //$ci->email->print_debugger();
+    $ci->email->send();
+}

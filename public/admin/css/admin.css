@@ -264,6 +264,18 @@ strong, .bold { font-weight:bold; }
 	color:#F00;
 	list-style: none;
 }
+
+.success{
+ 	margin: 0 !important;
+}
+.success li{
+list-style: none;
+color: green;
+font-size: 20px;
+font-weight: bold;
+}
+
+
 .error input,
 .error textarea,
 .error select { background-color:#FFD3C3; }
