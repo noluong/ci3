@@ -5,7 +5,8 @@
 	"require": {
 		"php": ">=5.2.4",
 		"ospinto/dbug": "dev-master",
-		"lonnieezell/codeigniter-forensics": "dev-master"
+		"lonnieezell/codeigniter-forensics": "dev-master",
+		"google/apiclient": "1.0.*@beta"
 	},
 	"require-dev": {
 		"mikey179/vfsStream": "1.1.*"

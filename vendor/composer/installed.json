@@ -32,43 +32,6 @@
         "homepage": "http://vfs.bovigo.org/"
     },
     {
-        "name": "ospinto/dbug",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/ospinto/dbug.git",
-            "reference": "4a1bb162c021c2cb0103075e25a94926fc0e0eda"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/ospinto/dbug/zipball/4a1bb162c021c2cb0103075e25a94926fc0e0eda",
-            "reference": "4a1bb162c021c2cb0103075e25a94926fc0e0eda",
-            "shasum": ""
-        },
-        "time": "2014-01-20 19:21:40",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "files": [
-                "dBug.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "GPL-3.0"
-        ],
-        "authors": [
-            {
-                "name": "Kwaku Otchere",
-                "email": "ospinto@hotmail.com",
-                "homepage": "http://dbug.ospinto.com/",
-                "role": "Former author"
-            }
-        ],
-        "description": "PHP version of ColdFusion's cfdump. Outputs colored and structured tabular variable information."
-    },
-    {
         "name": "compwright/codeigniter-installers",
         "version": "1.1.4",
         "version_normalized": "1.1.4.0",
@@ -164,5 +127,89 @@
             "profiler",
             "spark"
         ]
+    },
+    {
+        "name": "google/apiclient",
+        "version": "1.0.6-beta",
+        "version_normalized": "1.0.6.0-beta",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/google/google-api-php-client.git",
+            "reference": "a41a9dc0662e36420030eaab802dbb1f85459479"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/google/google-api-php-client/zipball/a41a9dc0662e36420030eaab802dbb1f85459479",
+            "reference": "a41a9dc0662e36420030eaab802dbb1f85459479",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.2.1"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "3.7.*"
+        },
+        "time": "2014-09-30 19:33:59",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "src/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "include-path": [
+            "src/"
+        ],
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "Client library for Google APIs",
+        "homepage": "http://developers.google.com/api-client-library/php",
+        "keywords": [
+            "google"
+        ]
+    },
+    {
+        "name": "ospinto/dbug",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ospinto/dbug.git",
+            "reference": "4a1bb162c021c2cb0103075e25a94926fc0e0eda"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ospinto/dbug/zipball/4a1bb162c021c2cb0103075e25a94926fc0e0eda",
+            "reference": "4a1bb162c021c2cb0103075e25a94926fc0e0eda",
+            "shasum": ""
+        },
+        "time": "2014-01-20 19:21:40",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "files": [
+                "dBug.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-3.0"
+        ],
+        "authors": [
+            {
+                "name": "Kwaku Otchere",
+                "email": "ospinto@hotmail.com",
+                "homepage": "http://dbug.ospinto.com/",
+                "role": "Former author"
+            }
+        ],
+        "description": "PHP version of ColdFusion's cfdump. Outputs colored and structured tabular variable information."
     }
 ]
