@@ -84,3 +84,14 @@ define('EXIT_USER_INPUT', 7); // invalid user input
 define('EXIT_DATABASE', 8); // database error
 define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+
+
+define('ADMIN_THEME','/public/admin/');
+define('VIEW_THEME','/public/');
+define('SP_THEME','/public/sp/');
+
+define('UPLOAD_NEWS','/uploads/news/');
+define('UPLOAD_SLIDER','/uploads/slider/');
+
+define('AUTOMAIL_NAME','vaytindungtieudung');
+define('NO_REPLY_EMAIL','vaytindungtieudung@noreply.info');

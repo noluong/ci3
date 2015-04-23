@@ -1,33 +1,27 @@
 <div id="slider">
-    <div class="flexslider">
-      <ul class="slides">
-        <li>
-            <div class="slider-caption">
-                <h1>Delicious Meals</h1>
-                <p>Donec justo dui, semper vitae aliquam euzali, ornare pretium enim. Maecenas molestie diam
-                <br><br>eget tellus luctus fermentum.</p>
-                <a href="single-post.html">Shop Now</a>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="flexslider">
+                  <ul class="slides">
+                    <?php
+                        if($slider){
+                            foreach ($slider as $key => $item) {
+                    ?>
+                        <li>
+                            <div class="slider-caption">
+                                <h1 itemprop="name">Vay tín dụng tiêu dùng </h1>
+                                <a href="<?php echo $item->link; ?>" itemprop="url">Đăng ký ngay</a>
+                            </div>
+                          <img src="<?php echo UPLOAD_SLIDER.$item->photo; ?>" alt="vay-tieu-dung-moi-doi-tuong-vpbank" />
+                        </li>    
+                    <?php
+                            }
+                        }
+                    ?>
+                  </ul>
+                </div>
             </div>
-          <img src="/public/images/slide1.jpg" alt="" />
-        </li>
-        <li>
-            <div class="slider-caption">
-                <h1>Ice-cream Menus</h1>
-                <p>Nulla id iaculis ligula. Vivamus mattis quam eget urna tincidunt consequat. Nullam 
-                <br><br>consectetur tempor neque vitae iaculis. Aliquam erat volutpat.</p>
-                <a href="single-post.html">More Details</a>
-            </div>
-          <img src="/public/images/slide2.jpg" alt="" />
-        </li>
-        <li>
-            <div class="slider-caption">
-                <h1>Healthy Drinks</h1>
-                <p>Maecenas fermentum est ut elementum vulputate. Ut vel consequat urna. Ut aliquet 
-                <br><br>ornare massa, quis dapibus quam condimentum id.</p>
-                <a href="single-post.html">Get Ready</a>
-            </div>
-          <img src="/public/images/slide3.jpg" alt="" />
-        </li>
-      </ul>
+        </div>
     </div>
 </div>
